@@ -24,7 +24,7 @@ export const doubleAsync = () => {
       setTimeout(() => {
         dispatch({
           type    : COUNTER_DOUBLE_ASYNC,
-          payload : getState().counter
+          payload : getState().article
         })
         resolve()
       }, 200)
@@ -49,7 +49,7 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = 0
-export default function counterReducer (state = initialState, action) {
+export default function articleReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state
