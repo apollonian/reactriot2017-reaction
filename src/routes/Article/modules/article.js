@@ -17,6 +17,11 @@ export const ARTICLE_ACTION_CHANGE_MODE = 'ARTICLE_ACTION_CHANGE_MODE'
 export const ARTICLE_ACTION_CHANGE_SPEEDREAD_STATE = 'ARTICLE_ACTION_CHANGE_SPEEDREAD_STATE'
 export const ARTICLE_ACTION_CHANGE_SPEEDREAD_SPEED = 'ARTICLE_ACTION_CHANGE_SPEEDREAD_SPEED'
 export const ARTICLE_ACTION_SET_ARTICLE_DATA = 'ARTICLE_ACTION_SET_ARTICLE_DATA'
+export const ARTICLE_ACTION_SET_INTERVAL_ID = 'ARTICLE_ACTION_SET_INTERVAL_ID'
+export const ARTICLE_ACTION_GOTO_NEXT_WORD = 'ARTICLE_ACTION_GOTO_NEXT_WORD'
+
+export const splitTextIntoWords = (text) => text.split(/\s+/)
+export const DEFAULT_SPEED = 50
 
 // ------------------------------------
 // Actions
@@ -44,7 +49,7 @@ export function changeArticleSpeedreadState (speedreadState = ARTICLE_SPEEDREAD_
   }
 }
 
-export function changeArticleSpeedreadSpeed (speed = 0) {
+export function changeArticleSpeedreadSpeed (speed = DEFAULT_SPEED) {
   return {
     type    : ARTICLE_ACTION_CHANGE_SPEEDREAD_SPEED,
     payload : { speed }
@@ -61,6 +66,20 @@ export function changeArticleData (data = {
       'heading': data.heading,
       'content': data.content
     }
+  }
+}
+
+export function setIntervalId (intervalId = 0) {
+  return {
+    type    : ARTICLE_ACTION_SET_INTERVAL_ID,
+    payload : { intervalId }
+  }
+}
+
+export function gotoNextWord () {
+  return {
+    type    : ARTICLE_ACTION_GOTO_NEXT_WORD,
+    payload : {}
   }
 }
 
@@ -83,11 +102,28 @@ export const doubleAsync = () => {
 }
 */
 
+export const stopSpeedReading = () => (dispatch, getState) => {
+  const intervalId = getState().article.intervalId
+  window.clearInterval(intervalId)
+  dispatch(setIntervalId(0))
+}
+
+export const startSpeedReading = () => (dispatch, getState) => {
+  dispatch(stopSpeedReading())
+  const speed = getState().article.speed
+  const intervalId = window.setInterval(() => dispatch(gotoNextWord()), 60000 / speed)
+  dispatch(setIntervalId(intervalId))
+}
+
 export const actions = {
   changeArticleMode,
   changeArticleSpeedreadState,
   changeArticleSpeedreadSpeed,
-  changeArticleData
+  changeArticleData,
+  setIntervalId,
+  gotoNextWord,
+  startSpeedReading,
+  stopSpeedReading
 }
 
 // ------------------------------------
@@ -112,7 +148,23 @@ const ACTION_HANDLERS = {
   [ARTICLE_ACTION_SET_ARTICLE_DATA]       : (state, action) => {
     return Object.assign({}, state, {
       'heading': action.payload.heading,
-      'content': action.payload.content
+      'content': action.payload.content,
+      'contentWords': splitTextIntoWords(action.payload.content),
+      'positionContentWords': 0
+    })
+  },
+  [ARTICLE_ACTION_SET_INTERVAL_ID] : (state, action) => {
+    return Object.assign({}, state, {
+      'intervalId': action.payload.intervalId
+    })
+  },
+  [ARTICLE_ACTION_GOTO_NEXT_WORD] : (state, action) => {
+    var newIndex = state.positionContentWords + 1
+    if (newIndex >= state.contentWords.length) {
+      newIndex = 0
+    }
+    return Object.assign({}, state, {
+      'positionContentWords': newIndex
     })
   }
 }
@@ -124,8 +176,11 @@ const ACTION_HANDLERS = {
 const initialState = {
   'heading': testHeading,
   'content': testContent,
+  'contentWords': splitTextIntoWords(testContent),
+  'positionContentWords': 0,
+  'intervalId': 0,
   'mode': ARTICLE_MODE_NORMAL,
-  'speed': 0,
+  'speed': DEFAULT_SPEED,
   'speedreadState': ARTICLE_SPEEDREAD_PAUSE
 }
 export default function articleReducer (state = initialState, action) {

@@ -3,7 +3,11 @@ import {
   changeArticleMode,
   changeArticleSpeedreadState,
   changeArticleSpeedreadSpeed,
-  changeArticleData
+  changeArticleData,
+  setIntervalId,
+  gotoNextWord,
+  startSpeedReading,
+  stopSpeedReading
  } from '../modules/article'
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -18,18 +22,26 @@ import Article from '../components/Article'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  changeArticleMode,
-  changeArticleSpeedreadState,
-  changeArticleSpeedreadSpeed,
-  changeArticleData
+  changeArticleMode: (mode) => changeArticleMode(mode),
+  changeArticleSpeedreadState: (state) => changeArticleSpeedreadState(state),
+  changeArticleSpeedreadSpeed: (state) => changeArticleSpeedreadSpeed(state),
+  changeArticleData: (dataArticle) => changeArticleData(dataArticle),
+  setIntervalId: (intervalId) => setIntervalId(intervalId),
+  startSpeedReading,
+  stopSpeedReading,
+  gotoNextWord
 }
 
-const mapStateToProps = (state) => ({
-  heading: state.heading,
-  content: state.content,
-  mode: state.mode,
-  speed: state.speed,
-  speedreadState: state.speedreadState
+const mapStateToProps = (state) =>
+({
+  heading: state.article.heading,
+  content: state.article.content,
+  mode: state.article.mode,
+  speed: state.article.speed,
+  speedreadState: state.article.speedreadState,
+  contentWords: state.article.contentWords,
+  positionContentWords: state.article.positionContentWords,
+  intervalId: state.article.intervalId
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
