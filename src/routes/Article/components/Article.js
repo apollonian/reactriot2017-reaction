@@ -30,7 +30,7 @@ export const Article = ({
   intervalId
 }) => {
   var marks = {}
-  for (var i = 50; i <= 800; i += 50) {
+  for (var i = 100; i <= 800; i += 100) {
     marks[i] = i.toString()
   }
 
@@ -56,14 +56,6 @@ export const Article = ({
 
   return (
     <div>
-      <div className='Toggle__Reader'>
-        <label htmlFor='Toggle__Status' className='Toggle__Label'>Speed Read</label>
-        <Toggle
-          id='Toggle__Status'
-          defaultChecked={isModeSpeedread}
-          onChange={handleToggle}
-        />
-      </div>
       <div className='Article'>
         <div>
           <h1 className='Article__Title'>
@@ -73,24 +65,39 @@ export const Article = ({
 
         {isModeSpeedread &&
           (
-            <div className='SpeedReader'>
-              <div className='SpeedReader__Controls'>
-                <div className='SpeedReader__Start' />
-                <Slider
-                  className='SpeedReader__Slider'
-                  defaultValue={speed}
-                  min={50}
-                  max={800}
-                  step={50}
-                  dots
-                  marks={marks}
-                  onChange={handleSliderChange}
-                />
-              </div>
+            <div>
               <div className='SpeedReader__Screen'>
                 <span className='SpeedReader__Active-Word'>
                   {contentWords[positionContentWords]}
                 </span>
+              </div>
+              <div className='SpeedReader__Controls-Container'>
+                <div className='SpeedReader__Controls'>
+                  <div className='SpeedReader__Start'>
+                    <MdPlay />
+                  </div>
+                  <div className="Slider__Container">
+                    <div className="WPM__Label">WPM</div>
+                    <Slider
+                      className='SpeedReader__Slider'
+                      defaultValue={speed}
+                      min={100}
+                      max={800}
+                      step={50}
+                      dots={false}
+                      marks={marks}
+                      onChange={handleSliderChange}
+                    />
+                  </div>
+                  <div className='Toggle__Reader'>
+                    <label htmlFor='Toggle__Status' className='Toggle__Label'>SPEED READ</label>
+                    <Toggle
+                      id='Toggle__Status'
+                      defaultChecked={isModeSpeedread}
+                      onChange={handleToggle}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           )
@@ -98,7 +105,22 @@ export const Article = ({
         {!isModeSpeedread &&
           (
             <div>
-              <p>{content}</p>
+              <p className="Article__Paragraph">{content}</p>
+              <div className='SpeedReader__Controls-Container'>
+                <div className='SpeedReader__Controls'>
+                  <div className='SpeedReader__Toggle-Information'>
+                    <span>Toggle the switch on the right to active Speed Reading &rarr;</span>
+                  </div>
+                  <div className='Toggle__Reader'>
+                    <label htmlFor='Toggle__Status' className='Toggle__Label'>SPEED READ</label>
+                    <Toggle
+                      id='Toggle__Status'
+                      defaultChecked={isModeSpeedread}
+                      onChange={handleToggle}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           )
         }
