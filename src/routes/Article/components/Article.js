@@ -4,6 +4,8 @@ import Toggle from 'react-toggle'
 import Slider from 'rc-slider'
 import 'rc-slider/dist/rc-slider.css'
 import './Article.css'
+import play from '../assets/ic_play_circle_filled_black_24px.svg'
+import pause from '../assets/ic_pause_circle_filled_black_24px.svg'
 import {
   ARTICLE_MODE_NORMAL,
   ARTICLE_MODE_SPEEDREAD,
@@ -48,6 +50,10 @@ export const Article = ({
     }
   }
 
+  const handleButton = () => {
+    //Do Something
+  }
+
   const handleSliderChange = (speed) => {
     stopSpeedReading()
     changeArticleSpeedreadSpeed(speed)
@@ -74,7 +80,9 @@ export const Article = ({
               <div className='SpeedReader__Controls-Container'>
                 <div className='SpeedReader__Controls'>
                   <div className='SpeedReader__Start'>
-                    <MdPlay />
+                    {
+                      isModeSpeedread ? (<img src={play} onClick={handleButton}/>) : (<img src={pause} onClick={handleButton}/>)
+                    }
                   </div>
                   <div className="Slider__Container">
                     <div className="WPM__Label">WPM</div>

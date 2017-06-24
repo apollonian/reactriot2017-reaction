@@ -47,8 +47,21 @@
     padding: 0 32px;
 }
 
+.SpeedReader__Controls img {
+    height: 42px;
+    width: 42px;
+    display: block;
+    margin-top: 19px;
+    opacity: 0.72;
+}
+
+.SpeedReader__Controls img:hover{
+    opacity: 0.86;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
 .SpeedReader__Start {
-    width: 80px;
     height: 80px;
     display: block;
 }
