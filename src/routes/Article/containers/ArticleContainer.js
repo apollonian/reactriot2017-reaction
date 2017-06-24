@@ -1,5 +1,10 @@
 import { connect } from 'react-redux'
-import { increment, doubleAsync } from '../modules/article'
+import {
+  changeArticleMode,
+  changeArticleSpeedreadState,
+  changeArticleSpeedreadSpeed,
+  changeArticleData
+ } from '../modules/article'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,12 +18,18 @@ import Article from '../components/Article'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  increment : () => increment(1),
-  doubleAsync
+  changeArticleMode,
+  changeArticleSpeedreadState,
+  changeArticleSpeedreadSpeed,
+  changeArticleData
 }
 
 const mapStateToProps = (state) => ({
-  article : state.article
+  heading: state.heading,
+  content: state.content,
+  mode: state.mode,
+  speed: state.speed,
+  speedreadState: state.speedreadState
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

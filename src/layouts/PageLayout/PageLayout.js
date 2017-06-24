@@ -8,7 +8,7 @@ export const PageLayout = ({ children }) => (
     <h1>ReadReactive</h1>
     <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Home</IndexLink>
     {' · '}
-    <Link to={{ pathname: '/article', hash: '#the-hash' }}
+    <Link to={{ pathname: '/article/asdf' }}
       activeClassName='page-layout__nav-item--active'>
         Article
     </Link>

@@ -1,22 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Article = ({ article, increment, doubleAsync }) => (
-  <div style={{ margin: '0 auto' }} >
-    <h2>Article: {article}</h2>
-    <button className='btn btn-primary' onClick={increment}>
-      Increment
-    </button>
-    {' '}
-    <button className='btn btn-secondary' onClick={doubleAsync}>
-      Double (Async)
-    </button>
+export const Article = ({
+  changeArticleMode,
+  changeArticleSpeedreadState,
+  changeArticleSpeedreadSpeed,
+  changeArticleData,
+  heading,
+  content,
+  mode,
+  speed,
+  speedreadState
+}) => (
+  <div>
+    <h1>
+      HELLP
+    </h1>
   </div>
 )
 Article.propTypes = {
-  article: PropTypes.number.isRequired,
-  increment: PropTypes.func.isRequired,
-  doubleAsync: PropTypes.func.isRequired,
+  changeArticleMode: PropTypes.func.isRequired,
+  changeArticleSpeedreadState: PropTypes.func.isRequired,
+  changeArticleSpeedreadSpeed: PropTypes.func.isRequired,
+  changeArticleData: PropTypes.func.isRequired,
+  heading: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  mode: PropTypes.string.isRequired,
+  speed: PropTypes.number.isRequired,
+  speedreadState: PropTypes.string.isRequired
 }
 
 export default Article
