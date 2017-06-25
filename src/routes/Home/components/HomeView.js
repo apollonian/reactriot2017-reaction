@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Search from './Search'
 import ArticleList from './ArticleList'
+import ProgressBar from 'react-progress-bar-plus'
 import './HomeView.css'
+import 'react-progress-bar-plus/lib/progress-bar.css'
 import hand from './assets/hand.png'
 import rocket from './assets/rocket.png'
 import sad from './assets/sad.png'
@@ -21,9 +23,9 @@ export const HomeView = ({
   loadArticleFailureMessage
 }) => (
   <div>
-    {/* // TODO: Help me get this one truthy only for the first time on app load */}
-    {(!searching && !searchFailure &&
-      (typeof articleList === 'undefined' || articleList.length === 0)) &&
+    <ProgressBar percent={searching ? (!searchFailure ? 16 : 100) : -1} autoIncrement spinner={false} />
+    <ProgressBar percent={loadingArticle ? (!loadArticleFailure ? 16 : 100) : -1} autoIncrement spinner={false} />
+    {(!searching && articleList.length === 0 && !searchFailure) &&
       <div className='Hello__Fellow__Human'>
         <img src={hand} />
         <h1>Hey there!</h1>
@@ -51,7 +53,7 @@ export const HomeView = ({
       searchFailureMessage={searchFailureMessage}
       searchAsync={searchAsync}
       setSearchInputText={setSearchInputText}
-      />
+    />
     {!searching &&
       <ArticleList
         articleList={articleList}
@@ -59,7 +61,8 @@ export const HomeView = ({
         loadingArticle={loadingArticle}
         loadArticleFailure={loadArticleFailure}
         loadArticleFailureMessage={loadArticleFailureMessage}
-      />}
+      />
+    }
   </div>
 )
 

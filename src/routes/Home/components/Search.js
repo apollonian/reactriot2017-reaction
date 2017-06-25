@@ -18,15 +18,16 @@ export const Search = ({
           event.preventDefault()
           searchAsync()
         }}
-    >
+      >
         <input
           className='Input__Link'
           type='text'
           value={searchInputText}
-          placeholder={'Search for topics e.g. Felis catus'}
+          placeholder={'Search a topic e.g. Felis catus'}
+          spellCheck='false'
           onChange={event => setSearchInputText(event.target.value)}
           autoFocus
-      />
+        />
         <input className='Submit__Button' type='submit' value='GO!' />
       </form>
     </div>

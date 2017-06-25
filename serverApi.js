@@ -120,7 +120,7 @@ app.get('/article/*', (request, response) => {
 })
 
 app.use(compression())
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist')))
 
 app.listen(port, (err) => {
   if (err) {
