@@ -81,7 +81,7 @@ export function loadArticleFailed (loadArticleFailureMessage = '') {
 export const searchAsync = () => {
   return async (dispatch, getState) => {
     const searchTextUri = encodeURI(getState().homeview.searchInputText)
-    const fullUrl = 'https://news-api-google.herokuapp.com/searchArticles?' +
+    const fullUrl = 'https://read-reactive.herokuapp.com/searchArticles?' +
       'q=' + encodeURI(searchTextUri)
     dispatch(searchRequest())
     try {
@@ -103,7 +103,7 @@ export const searchAsync = () => {
 export const loadArticle = (id) => {
   return async (dispatch, getState) => {
     const articleDetails = getState().homeview.articleList[id]
-    const fullUrl = 'https://news-api-google.herokuapp.com/getArticleData?' +
+    const fullUrl = 'https://read-reactive.herokuapp.com/getArticleData?' +
       'slug=' + encodeURI(articleDetails.urlSlug) +
       '&url=' + encodeURI(articleDetails.url)
     dispatch(loadArticleRequest())
