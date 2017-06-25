@@ -1,17 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Toggle from 'react-toggle'
-import Slider from 'rc-slider'
+import Slider, { createSliderWithTooltip } from 'rc-slider'
 import 'rc-slider/dist/rc-slider.css'
 import './Article.css'
-import play from '../assets/ic_play_circle_filled_black_24px.svg'
-import pause from '../assets/ic_pause_circle_filled_black_24px.svg'
+import play from 'material-design-icons/av/svg/production/ic_play_circle_filled_48px.svg'
+import pause from 'material-design-icons/av/svg/production/ic_pause_circle_filled_48px.svg'
 import {
   ARTICLE_MODE_NORMAL,
   ARTICLE_MODE_SPEEDREAD,
   ARTICLE_SPEEDREAD_PAUSE,
   ARTICLE_SPEEDREAD_PLAY
 } from '../modules/article'
+
+const SliderWithTooltip = createSliderWithTooltip(Slider)
 
 export const Article = ({
   changeArticleMode,
@@ -51,7 +53,7 @@ export const Article = ({
   }
 
   const handleButton = () => {
-    //Do Something
+    // Do Something
   }
 
   const handleSliderChange = (speed) => {
@@ -81,19 +83,19 @@ export const Article = ({
                 <div className='SpeedReader__Controls'>
                   <div className='SpeedReader__Start'>
                     {
-                      isModeSpeedread ? (<img src={play} onClick={handleButton}/>) : (<img src={pause} onClick={handleButton}/>)
+                      isModeSpeedread
+                      ? (<img src={play} onClick={handleButton} />) : (<img src={pause} onClick={handleButton} />)
                     }
                   </div>
-                  <div className="Slider__Container">
-                    <div className="WPM__Label">WPM</div>
-                    <Slider
+                  <div className='Slider__Container'>
+                    <div className='WPM__Label'>WPM</div>
+                    <SliderWithTooltip
                       className='SpeedReader__Slider'
                       defaultValue={speed}
                       min={100}
                       max={800}
                       step={50}
                       dots={false}
-                      marks={marks}
                       onChange={handleSliderChange}
                     />
                   </div>
@@ -113,7 +115,7 @@ export const Article = ({
         {!isModeSpeedread &&
           (
             <div>
-              <p className="Article__Paragraph">{content}</p>
+              <p className='Article__Paragraph'>{content}</p>
               <div className='SpeedReader__Controls-Container'>
                 <div className='SpeedReader__Controls'>
                   <div className='SpeedReader__Toggle-Information'>
