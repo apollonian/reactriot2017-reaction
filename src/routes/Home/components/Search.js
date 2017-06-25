@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './Search.css'
 
 export const Search = ({
   searchAsync,
@@ -9,20 +10,21 @@ export const Search = ({
   searchFailure,
   searchFailureMessage
 }) => (
-  <div>
-    <form onSubmit={(event) => {
-      event.preventDefault()
-      searchAsync()
-    }}>
-      <label>
-        Search Topic:
-        <input
-          type='text'
-          value={searchInputText}
-          onChange={(event) => setSearchInputText(event.target.value)}
-        />
-      </label>
-      <input type='submit' value='Submit' />
+  <div className='Search__Container'>
+    <form
+      onSubmit={event => {
+        event.preventDefault()
+        searchAsync()
+      }}
+    >
+      <input
+        className='Input__Link'
+        type='text'
+        value={searchInputText}
+        placeholder={'Search for topics or Enter a URL'}
+        onChange={event => setSearchInputText(event.target.value)}
+      />
+      <input className='Submit__Button' type='submit' value='GO!' />
     </form>
   </div>
 )
