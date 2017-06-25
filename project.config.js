@@ -12,7 +12,7 @@ module.exports = {
   /** The name of the directory in which to emit compiled assets */
   outDir: 'dist',
   /** The base path for all projects assets (relative to the website root) */
-  publicPath: '/reactriot2017-reaction/',
+  publicPath: '/',
   /** Whether to generate sourcemaps */
   sourcemaps: true,
   /** A hash map of keys that the compiler should treat as external to the project */
