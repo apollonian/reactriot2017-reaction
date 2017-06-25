@@ -25,7 +25,7 @@ export const HomeView = ({
   <div>
     <ProgressBar percent={searching ? (!searchFailure ? 16 : 100) : -1} autoIncrement spinner={false} />
     <ProgressBar percent={loadingArticle ? (!loadArticleFailure ? 16 : 100) : -1} autoIncrement spinner={false} />
-    {(!searching && articleList.length === 0) &&
+    {(!searching && articleList.length === 0 && !searchFailure) &&
       <div className='Hello__Fellow__Human'>
         <img src={hand} />
         <h1>Hey there!</h1>
@@ -53,7 +53,7 @@ export const HomeView = ({
       searchFailureMessage={searchFailureMessage}
       searchAsync={searchAsync}
       setSearchInputText={setSearchInputText}
-      />
+    />
     {!searching &&
       <ArticleList
         articleList={articleList}
@@ -62,7 +62,7 @@ export const HomeView = ({
         loadArticleFailure={loadArticleFailure}
         loadArticleFailureMessage={loadArticleFailureMessage}
       />
-      }
+    }
   </div>
 )
 
