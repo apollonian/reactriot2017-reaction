@@ -10,7 +10,7 @@ const formatList = (apiList) => {
     (oldListItem) => {
       var newListItem = {}
       const parsedHtml = cheerio.load(oldListItem.description)
-      newListItem['url'] = url.parse(oldListItem.url, true).url
+      newListItem['url'] = url.parse(oldListItem.url, true).query.url
       newListItem['imageUrl'] = parsedHtml('img').attr('src')
       newListItem['publication'] = parsedHtml('[size="-2"]').text()
       newListItem['title'] = parsedHtml('.lh > a > b').text()
