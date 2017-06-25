@@ -10,16 +10,18 @@ export const Search = ({
   searchFailureMessage
 }) => (
   <div>
-    <form onSubmit={(event) => {
-      event.preventDefault()
-      searchAsync()
-    }}>
+    <form
+      onSubmit={event => {
+        event.preventDefault()
+        searchAsync()
+      }}
+    >
       <label>
         Search Topic:
         <input
           type='text'
           value={searchInputText}
-          onChange={(event) => setSearchInputText(event.target.value)}
+          onChange={event => setSearchInputText(event.target.value)}
         />
       </label>
       <input type='submit' value='Submit' />
