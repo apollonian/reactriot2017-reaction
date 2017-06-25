@@ -8,6 +8,15 @@
     width: 100%;
 }
 
+.Form__Container {
+    max-width: 720px;
+    width: 92vw;
+}
+
+.Search_Form {
+    max-width: 720px;
+}
+
 .Input__Link {
     display: block;
     border: none;
@@ -18,8 +27,8 @@
     border-radius: 10000px;
     font-family: 'Karla';
     height: 72px;
-    width: 600px;
     outline: 0;
+    width: 100%;
     font-size: 22px;
     padding: 0 32px;
     box-shadow: 0 30px 40px 0 rgba(170, 208, 235, 0.4), inset 0 -4px 0 0 rgba(100, 115, 160, 0.08);
@@ -34,12 +43,13 @@
     font-weight: 700;
     font-size: 16px;
     margin-top: -64px;
-    margin-left: 536px;
+    margin-left: calc(100% - 56px - 8px);
     border: none;
     height: 56px;
     width: 56px;
     border-radius: 200px;
     box-shadow: 0 10px 16px 0 rgba(16, 36, 94, 0.2);
+    z-index: 999;
 }
 
 .Submit__Button:hover {
@@ -49,9 +59,18 @@
     box-shadow: 0 10px 24px 0 rgba(16, 36, 94, 0.2);
 }
 
-::-webkit-input-placeholder,
- ::-moz-placeholder,
- :-ms-input-placeholder,
+::-webkit-input-placeholder {
+    color: #6E7D91;
+}
+
+ ::-moz-placeholder {
+    color: #6E7D91;
+}
+
+ :-ms-input-placeholder {
+    color: #6E7D91;
+}
+
  :-moz-placeholder {
-    color: #6B7C93;
+    color: #6E7D91;
 }

@@ -67,7 +67,7 @@
     margin: 0 auto;
     width: 100%;
     height: 80px;
-    max-width: 540px;
+    max-width: 600px;
     min-width: 420px;
     background-color: #FFF;
     box-shadow: 0 4px 14px rgba(50, 50, 94, .1), 0 3px 6px rgba(0, 0, 0, .08);
@@ -90,8 +90,9 @@
     height: 80px;
 }
 
-.SpeedReader__Toggle-Information Info {
+.SpeedReader__Toggle-Information .Info {
     font-family: 'Muli';
+    color: #6E7D91;
 }
 
 .SpeedReader__Start {
@@ -138,8 +139,6 @@
     margin-left: 60px;
     margin-top: 32px;
 }
-
-.SpeedReader__Slider-Overlay {}
 
 .SpeedReader__Control-Button {
     width: 72px;

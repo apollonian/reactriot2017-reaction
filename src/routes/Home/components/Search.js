@@ -11,21 +11,24 @@ export const Search = ({
   searchFailureMessage
 }) => (
   <div className='Search__Container'>
-    <form
-      onSubmit={event => {
-        event.preventDefault()
-        searchAsync()
-      }}
+    <div className='Form__Container'>
+      <form
+        className='Search__Form'
+        onSubmit={event => {
+          event.preventDefault()
+          searchAsync()
+        }}
     >
-      <input
-        className='Input__Link'
-        type='text'
-        value={searchInputText}
-        placeholder={'Search for topics e.g. Felis catus'}
-        onChange={event => setSearchInputText(event.target.value)}
+        <input
+          className='Input__Link'
+          type='text'
+          value={searchInputText}
+          placeholder={'Search for topics e.g. Felis catus'}
+          onChange={event => setSearchInputText(event.target.value)}
       />
-      <input className='Submit__Button' type='submit' value='GO!' />
-    </form>
+        <input className='Submit__Button' type='submit' value='GO!' />
+      </form>
+    </div>
   </div>
 )
 

@@ -21,12 +21,12 @@ export const HomeView = ({
   loadArticleFailureMessage
 }) => (
   <div>
-    {/*// TODO: Help me get this one truthy only for the first time on app load*/}
-    {(!searching && searchFailure)  &&
+    {/* // TODO: Help me get this one truthy only for the first time on app load */}
+    {(!searching && !searchFailure) &&
       <div className='Hello__Fellow__Human'>
         <img src={hand} />
         <h1>Hey there!</h1>
-        <span>To get started, enter a term of your liking, e.g. Cat</span>
+        <span>To get started, enter a term of your liking, e.g. Kitten</span>
       </div>
     }
     {searching &&
@@ -43,15 +43,15 @@ export const HomeView = ({
         <span>Something went wrong. Try it again.</span>
       </div>
     }
-      <Search
-        searchInputText={searchInputText}
-        searching={searching}
-        searchFailure={searchFailure}
-        searchFailureMessage={searchFailureMessage}
-        searchAsync={searchAsync}
-        setSearchInputText={setSearchInputText}
+    <Search
+      searchInputText={searchInputText}
+      searching={searching}
+      searchFailure={searchFailure}
+      searchFailureMessage={searchFailureMessage}
+      searchAsync={searchAsync}
+      setSearchInputText={setSearchInputText}
       />
-      {!searching &&
+    {!searching &&
       <ArticleList
         articleList={articleList}
         loadArticle={loadArticle}
