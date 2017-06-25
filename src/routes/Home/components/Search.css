@@ -30,9 +30,14 @@
     outline: 0;
     width: 100%;
     font-size: 22px;
-    padding: 0 32px;
+    padding-left: 32px;
+    padding-right: 70px;
     box-shadow: 0 30px 40px 0 rgba(170, 208, 235, 0.4), inset 0 -4px 0 0 rgba(100, 115, 160, 0.08);
 }
+
+input[placeholder] { text-overflow: ellipsis; }
+::-moz-placeholder { text-overflow: ellipsis; } /* firefox 19+ */
+input:-moz-placeholder { text-overflow: ellipsis; }
 
 .Submit__Button {
     background-color: #3ECF8E;
