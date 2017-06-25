@@ -66,9 +66,13 @@ export const Article = ({
   }
 
   const handleSelectSpeedChange = (speed) => {
-    stopSpeedReading()
-    changeArticleSpeedreadSpeed(speed)
-    startSpeedReading()
+    if (speedreadState == ARTICLE_SPEEDREAD_PLAY) {
+      stopSpeedReading()
+      changeArticleSpeedreadSpeed(speed)
+      startSpeedReading()
+    } else {
+      changeArticleSpeedreadSpeed(speed)
+    }
   }
 
   return (
