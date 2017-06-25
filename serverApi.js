@@ -1,4 +1,5 @@
 const express = require('express')
+const compression = require('compression')
 const fetch = require('node-fetch')
 const Url = require('url')
 var Feed = require('rss-to-json')
@@ -108,6 +109,7 @@ app.get('/getArticleData', (request, response) => {
   }
 })
 
+app.use(compression())
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(port, (err) => {
