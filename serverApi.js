@@ -15,7 +15,7 @@ const formatList = (apiList) => {
       newListItem['publication'] = parsedHtml('[size="-2"]').text()
       newListItem['title'] = parsedHtml('.lh > a > b').text()
       newListItem['description'] = parsedHtml('.lh > font:nth-of-type(2)').html()
-
+      newListItem['created'] = oldListItem.created
       return newListItem
     }
   )
