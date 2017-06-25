@@ -1,8 +1,9 @@
-# ReadReactive 📰
+# ReadReactive 
 
 ReadReactive helps you search for and speed read trending news stories.
 
-You should check it here: [https://reaction.2017.reactriot.com](https://reaction.2017.reactriot.com)
+You should check it here: [http://reaction.2017.reactriot.com](http://reaction.2017.reactriot.com)
+
 
 ## Development 💻
 
