@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Toggle from 'react-toggle'
-import Slider, { createSliderWithTooltip } from 'rc-slider'
 import Select, {Option, OptGroup} from 'rc-select'
-import 'rc-slider/dist/rc-slider.css'
 import 'rc-select/assets/index.css'
 import './Article.css'
 import play from 'material-design-icons/av/svg/production/ic_play_circle_filled_48px.svg'
@@ -14,8 +12,6 @@ import {
   ARTICLE_SPEEDREAD_PAUSE,
   ARTICLE_SPEEDREAD_PLAY
 } from '../modules/article'
-
-const SliderWithTooltip = createSliderWithTooltip(Slider)
 
 export const Article = ({
   changeArticleMode,
@@ -35,10 +31,17 @@ export const Article = ({
   positionContentWords,
   intervalId
 }) => {
-  var marks = {}
-  for (var i = 100; i <= 800; i += 100) {
-    marks[i] = i.toString()
-  }
+  const marks = [
+      <Option value="100">100</Option>,
+      <Option value="200">200</Option>,
+      <Option value="300">300</Option>,
+      <Option value="400">400</Option>,
+      <Option value="500">500</Option>,
+      <Option value="600">600</Option>,
+      <Option value="700">700</Option>,
+      <Option value="800">800</Option>
+  ]
+
 
   const isModeSpeedread = (mode === ARTICLE_MODE_SPEEDREAD)
 
@@ -63,15 +66,6 @@ export const Article = ({
     changeArticleSpeedreadSpeed(speed)
     startSpeedReading()
   }
-
-  const options = [
-      <Option value="100">100</Option>,
-      <Option value="200">200</Option>,
-      <Option value="300">300</Option>,
-      <Option value="400">400</Option>,
-      <Option value="500">500</Option>,
-      <Option value="600">600</Option>
-  ]
 
   return (
     <div>
@@ -102,7 +96,7 @@ export const Article = ({
                   <div className='Slider__Container'>
                     <div className='WPM__Label'>WPM</div>
                       <Select defaultValue={'100'} showSearch={false} onChange={handleSliderChange}>
-                        {options}
+                        {marks}
                       </Select>
                   </div>
                   </div>
