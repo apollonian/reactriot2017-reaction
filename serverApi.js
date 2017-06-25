@@ -1,7 +1,7 @@
 const http = require('http')
 const url = require('url')
 var Feed = require('rss-to-json')
-const port = 8876
+const port = 80
 
 const requestHandler = (request, response) => {
   var urlParts = url.parse(request.url, true)
