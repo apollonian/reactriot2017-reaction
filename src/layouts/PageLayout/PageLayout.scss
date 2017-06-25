@@ -28,3 +28,9 @@
     font-weight: 400;
     font-size: 1em;
 }
+
+@media screen and (max-width: 480px) {
+    .PageLayout__Header {
+        height: 30vh;
+    }
+}
