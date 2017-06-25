@@ -115,6 +115,10 @@ app.get('/getArticleData', (request, response) => {
   }
 })
 
+app.get('/article/*', (request, response) => {
+  response.redirect('/')
+})
+
 app.use(compression())
 app.use(express.static(path.join(__dirname, 'dist')));
 

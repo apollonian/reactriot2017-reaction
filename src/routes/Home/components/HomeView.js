@@ -22,7 +22,8 @@ export const HomeView = ({
 }) => (
   <div>
     {/* // TODO: Help me get this one truthy only for the first time on app load */}
-    {(!searching && !searchFailure) &&
+    {(!searching && !searchFailure &&
+      (typeof articleList === 'undefined' || articleList.length === 0)) &&
       <div className='Hello__Fellow__Human'>
         <img src={hand} />
         <h1>Hey there!</h1>
