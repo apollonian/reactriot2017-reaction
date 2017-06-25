@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 import {
   setSearchInputText,
-  searchAsync
+  searchAsync,
+  loadArticle
  } from '../modules/homeview'
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -17,6 +18,7 @@ import HomeView from '../components/HomeView'
 
 const mapDispatchToProps = {
   setSearchInputText: (searchInputText) => setSearchInputText(searchInputText),
+  loadArticle: (id) => loadArticle(id),
   searchAsync
 }
 

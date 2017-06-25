@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import DOMPurify from 'dompurify'
 
 export const ArticleList = ({
-  articleList
+  articleList,
+  loadArticle
 }) => {
   const displayList = articleList.map(
     (listItem, index) => (
-      <li key={index}>
+      <li key={index} onClick={() => loadArticle(index)}>
         <ul>
           <li>url: {listItem.url}</li>
           <li> urlSlug: {listItem.urlSlug} </li>
@@ -33,7 +34,8 @@ export const ArticleList = ({
 }
 
 ArticleList.propTypes = {
-  articleList: PropTypes.array.isRequired
+  articleList: PropTypes.array.isRequired,
+  loadArticle: PropTypes.func.isRequired
 }
 
 export default ArticleList

@@ -6,6 +6,7 @@ import ArticleList from './ArticleList'
 export const HomeView = ({
   searchAsync,
   setSearchInputText,
+  loadArticle,
   searchInputText,
   searching,
   searchFailure,
@@ -24,6 +25,7 @@ export const HomeView = ({
     />
     <ArticleList
       articleList={articleList}
+      loadArticle={loadArticle}
     />
   </div>
 )
@@ -31,6 +33,7 @@ export const HomeView = ({
 HomeView.propTypes = {
   searchAsync: PropTypes.func.isRequired,
   setSearchInputText: PropTypes.func.isRequired,
+  loadArticle: PropTypes.func.isRequired,
   searchInputText: PropTypes.string.isRequired,
   searching: PropTypes.bool.isRequired,
   searchFailure: PropTypes.bool.isRequired,
