@@ -12,7 +12,7 @@
     "test:watch": "npm test -- --watch",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "heroku-postbuild": "yarn && npm run build"
+    "heroku-postbuild": "yarn install --production=false && npm run build"
   },
   "repository": {
     "type": "git",
