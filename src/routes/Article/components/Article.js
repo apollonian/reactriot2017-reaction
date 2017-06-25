@@ -55,8 +55,14 @@ export const Article = ({
     }
   }
 
-  const handleButton = () => {
-    // Do Something
+  const handlePlayPauseButton = () => {
+    if (speedreadState == ARTICLE_SPEEDREAD_PLAY) {
+      stopSpeedReading()
+      changeArticleSpeedreadState(ARTICLE_SPEEDREAD_PAUSE)
+    } else {
+      startSpeedReading()
+      changeArticleSpeedreadState(ARTICLE_SPEEDREAD_PLAY)
+    }
   }
 
   const handleSliderChange = (speed) => {
@@ -86,9 +92,9 @@ export const Article = ({
                 <div className='SpeedReader__Controls'>
                   <div className='SpeedReader__Controls-Left'>
                     <div className='SpeedReader__Start'>
-                      { isModeSpeedread
-                        ? (<img src={play} onClick={handleButton} />)
-                        : (<img src={pause} onClick={handleButton} />)
+                      { speedreadState == ARTICLE_SPEEDREAD_PAUSE
+                        ? (<img src={play} onClick={handlePlayPauseButton} />)
+                        : (<img src={pause} onClick={handlePlayPauseButton} />)
                       }
                     </div>
                     <div className='Slider__Container'>
