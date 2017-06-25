@@ -28,7 +28,10 @@ const mapStateToProps = (state) =>
   searching: state.homeview.searching,
   searchFailure: state.homeview.searchFailure,
   articleList: state.homeview.articleList,
-  searchFailureMessage: state.homeview.searchFailureMessage
+  searchFailureMessage: state.homeview.searchFailureMessage,
+  'loadingArticle': state.homeview.loadingArticle,
+  'loadArticleFailure': state.homeview.loadArticleFailure,
+  'loadArticleFailureMessage': state.homeview.loadArticleFailureMessage
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

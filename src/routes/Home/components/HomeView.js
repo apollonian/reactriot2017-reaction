@@ -11,7 +11,10 @@ export const HomeView = ({
   searching,
   searchFailure,
   searchFailureMessage,
-  articleList
+  articleList,
+  loadingArticle,
+  loadArticleFailure,
+  loadArticleFailureMessage
 }) => (
   <div>
     <h4>ReadReactive</h4>
@@ -26,6 +29,9 @@ export const HomeView = ({
     <ArticleList
       articleList={articleList}
       loadArticle={loadArticle}
+      loadingArticle={loadingArticle}
+      loadArticleFailure={loadArticleFailure}
+      loadArticleFailureMessage={loadArticleFailureMessage}
     />
   </div>
 )
@@ -38,7 +44,10 @@ HomeView.propTypes = {
   searching: PropTypes.bool.isRequired,
   searchFailure: PropTypes.bool.isRequired,
   searchFailureMessage: PropTypes.string.isRequired,
-  articleList: PropTypes.array.isRequired
+  articleList: PropTypes.array.isRequired,
+  loadingArticle: PropTypes.bool.isRequired,
+  loadArticleFailure: PropTypes.bool.isRequired,
+  loadArticleFailureMessage: PropTypes.string.isRequired
 }
 
 export default HomeView

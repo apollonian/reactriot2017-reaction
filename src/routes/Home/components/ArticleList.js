@@ -4,7 +4,10 @@ import DOMPurify from 'dompurify'
 
 export const ArticleList = ({
   articleList,
-  loadArticle
+  loadArticle,
+  loadingArticle,
+  loadArticleFailure,
+  loadArticleFailureMessage
 }) => {
   const displayList = articleList.map(
     (listItem, index) => (
@@ -35,7 +38,10 @@ export const ArticleList = ({
 
 ArticleList.propTypes = {
   articleList: PropTypes.array.isRequired,
-  loadArticle: PropTypes.func.isRequired
+  loadArticle: PropTypes.func.isRequired,
+  loadingArticle: PropTypes.bool.isRequired,
+  loadArticleFailure: PropTypes.bool.isRequired,
+  loadArticleFailureMessage: PropTypes.string.isRequired
 }
 
 export default ArticleList
