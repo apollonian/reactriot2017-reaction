@@ -21,7 +21,7 @@ export const Search = ({
         className='Input__Link'
         type='text'
         value={searchInputText}
-        placeholder={'Search for topics or Enter a URL'}
+        placeholder={'Search for topics e.g. Felis catus'}
         onChange={event => setSearchInputText(event.target.value)}
       />
       <input className='Submit__Button' type='submit' value='GO!' />
