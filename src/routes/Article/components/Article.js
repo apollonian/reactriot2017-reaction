@@ -128,7 +128,11 @@ export const Article = ({
         {!isModeSpeedread &&
           (
             <div>
-              <p className='Article__Paragraph'>{content}</p>
+              <p className='Article__Paragraph'>
+                {content.split('\n').map((item, key) => {
+                  return <span key={key}>{item}<br/></span>
+                })}
+              </p>
               <div className='SpeedReader__Controls-Container'>
                 <div className='SpeedReader__Controls'>
                   <div className='SpeedReader__Toggle-Information'>
