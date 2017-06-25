@@ -2,7 +2,7 @@
 // Constants
 // ------------------------------------
 
-const testHeading = 'Test Heading'
+const testHeading = 'Test Heading - Or this is a really long heading that can take multiple lines'
 const testContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' +
   '\nRepellat, deserunt corrupti quam obcaecati est, corporis!' +
   '\nNatus fugiat, porro numquam sit odio, error minima consectetur impedit' +
@@ -21,7 +21,7 @@ export const ARTICLE_ACTION_SET_INTERVAL_ID = 'ARTICLE_ACTION_SET_INTERVAL_ID'
 export const ARTICLE_ACTION_GOTO_NEXT_WORD = 'ARTICLE_ACTION_GOTO_NEXT_WORD'
 
 export const splitTextIntoWords = (text) => text.split(/\s+/)
-export const DEFAULT_SPEED = 50
+export const DEFAULT_SPEED = 100
 
 // ------------------------------------
 // Actions

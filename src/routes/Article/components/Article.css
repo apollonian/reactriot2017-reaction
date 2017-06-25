@@ -1,27 +1,136 @@
-.Article__Title {
-    font-size: 40px;
-    line-height: 42px;
+.rc-slider {
+    font-family: 'Karla';
+    width: 320px;
 }
 
-.Article p {
-    font-size: 22px;
-    line-height: 32px;
+.rc-select {
+    width: 120px;
+}
+
+.rc-select-selection {
+    border-radius: 2px;
+    margin-top: 26px;
+}
+
+.Slider__Container {
+    height: 80px;
+}
+
+
+.Article {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.Article__Title {
+    text-align: center;
+    font-size: 2.4em;
+    line-height: 1.33em;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-weight: 700;
+    margin: 1.618em 0 1em;
+    padding: 0 1.2em;
+    color: #32325F;
+}
+
+.Article__Paragraph {
+    font-size: 1em;
+    line-height: 1.618em;
+    font-family: 'Muli';
+    color: #6E7D91;
+}
+
+.SpeedReader__Screen {
+    display: flex;
+}
+
+.SpeedReader__Controls-Container {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    bottom: 24px;
+    left: 0;
+}
+
+.SpeedReader__Controls {
+    display: flex;
+    align-items: center;
+    /*justify-content: flex-end;*/
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    height: 80px;
+    max-width: 1000px;
+    min-width: 720px;
+    background-color: #FFF;
+    box-shadow: 0 4px 14px rgba(50, 50, 94, .1), 0 3px 6px rgba(0, 0, 0, .08);
+    border-radius: 4px;
+    padding: 0 32px;
+}
+
+.SpeedReader__Controls img {
+    margin-top: 16px;
+    opacity: 0.72;
+}
+
+.SpeedReader__Controls img:hover {
+    opacity: 0.86;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+.SpeedReader__Start {
+    height: 80px;
+    display: block;
 }
 
 .Toggle__Reader {
-    margin: 20px 0;
+    width: auto;
+    float: right;
+    height: 24px;
+    margin-right: 0;
 }
 
 .Toggle__Label {
     line-height: 24px;
+    font-family: 'Karla';
+    font-weight: 700;
+    color: #6E7D91;
     overflow: hidden;
     display: inline-block;
     margin-right: 12px;
+    margin-bottom: 0;
+}
+
+.WPM__Label {
+    line-height: 80px;
+    font-family: 'Karla';
+    font-weight: 700;
+    color: #6E7D91;
+    overflow: hidden;
+    display: block;
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 0;
+    left: 80px
 }
 
 .SpeedReader__Slider {
-    width: 80%;
-    margin: 0 auto;
+    /*width: 70%;*/
+    /*float: left;*/
+    margin-left: 60px;
+    margin-top: 32px;
+}
+
+.SpeedReader__Slider-Overlay {}
+
+.SpeedReader__Control-Button {
+    width: 72px;
+    height: 72px;
+    display: block;
+    border-radius: 72px;
+    background-color: #343434;
 }
 
 .SpeedReader__Screen {
@@ -29,7 +138,10 @@
 }
 
 .SpeedReader__Active-Word {
-    font-size: 32px;
+    font-size: 40px;
+    margin: 0 auto;
+    color: #6E7D91;
+    font-family: 'Open Sans';
 }
 
 .react-toggle {
@@ -73,22 +185,22 @@
     height: 24px;
     padding: 0;
     border-radius: 30px;
-    background-color: #4D4D4D;
+    background-color: #32325F;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
 
 .react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-    background-color: #000000;
+    background-color: #32325F;
 }
 
 .react-toggle--checked .react-toggle-track {
-    background-color: #19AB27;
+    background-color: #3ECF8E;
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-    background-color: #128D15;
+    background-color: #3ECF8E;
 }
 
 .react-toggle-track-check {
@@ -154,7 +266,7 @@
 
 .react-toggle--checked .react-toggle-thumb {
     left: 27px;
-    border-color: #19AB27;
+    border-color: #3ECF8E;
 }
 
 .react-toggle--focus .react-toggle-thumb {

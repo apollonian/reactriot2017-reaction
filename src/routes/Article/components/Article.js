@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Toggle from 'react-toggle'
-import Slider from 'rc-slider'
-import 'rc-slider/dist/rc-slider.css'
+import Select, {Option, OptGroup} from 'rc-select'
+import 'rc-select/assets/index.css'
 import './Article.css'
+import play from 'material-design-icons/av/svg/production/ic_play_circle_filled_48px.svg'
+import pause from 'material-design-icons/av/svg/production/ic_pause_circle_filled_48px.svg'
 import {
   ARTICLE_MODE_NORMAL,
   ARTICLE_MODE_SPEEDREAD,
@@ -29,10 +31,17 @@ export const Article = ({
   positionContentWords,
   intervalId
 }) => {
-  var marks = {}
-  for (var i = 50; i <= 800; i += 50) {
-    marks[i] = i.toString()
-  }
+  const marks = [
+      <Option value="100">100</Option>,
+      <Option value="200">200</Option>,
+      <Option value="300">300</Option>,
+      <Option value="400">400</Option>,
+      <Option value="500">500</Option>,
+      <Option value="600">600</Option>,
+      <Option value="700">700</Option>,
+      <Option value="800">800</Option>
+  ]
+
 
   const isModeSpeedread = (mode === ARTICLE_MODE_SPEEDREAD)
 
@@ -48,6 +57,10 @@ export const Article = ({
     }
   }
 
+  const handleButton = () => {
+    // Do Something
+  }
+
   const handleSliderChange = (speed) => {
     stopSpeedReading()
     changeArticleSpeedreadSpeed(speed)
@@ -56,14 +69,6 @@ export const Article = ({
 
   return (
     <div>
-      <div className='Toggle__Reader'>
-        <label htmlFor='Toggle__Status' className='Toggle__Label'>Speed Read</label>
-        <Toggle
-          id='Toggle__Status'
-          defaultChecked={isModeSpeedread}
-          onChange={handleToggle}
-        />
-      </div>
       <div className='Article'>
         <div>
           <h1 className='Article__Title'>
@@ -73,24 +78,37 @@ export const Article = ({
 
         {isModeSpeedread &&
           (
-            <div className='SpeedReader'>
-              <div className='SpeedReader__Controls'>
-                <div className='SpeedReader__Start' />
-                <Slider
-                  className='SpeedReader__Slider'
-                  defaultValue={speed}
-                  min={50}
-                  max={800}
-                  step={50}
-                  dots
-                  marks={marks}
-                  onChange={handleSliderChange}
-                />
-              </div>
+            <div>
               <div className='SpeedReader__Screen'>
                 <span className='SpeedReader__Active-Word'>
                   {contentWords[positionContentWords]}
                 </span>
+              </div>
+              <div className='SpeedReader__Controls-Container'>
+                <div className='SpeedReader__Controls'>
+                  <div>
+                  <div className='SpeedReader__Start'>
+                    {
+                      isModeSpeedread
+                      ? (<img src={play} onClick={handleButton} />) : (<img src={pause} onClick={handleButton} />)
+                    }
+                  </div>
+                  <div className='Slider__Container'>
+                    <div className='WPM__Label'>WPM</div>
+                      <Select defaultValue={'100'} showSearch={false} onChange={handleSliderChange}>
+                        {marks}
+                      </Select>
+                  </div>
+                  </div>
+                  <div className='Toggle__Reader'>
+                    <label htmlFor='Toggle__Status' className='Toggle__Label'>SPEED READ</label>
+                    <Toggle
+                      id='Toggle__Status'
+                      defaultChecked={isModeSpeedread}
+                      onChange={handleToggle}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           )
@@ -98,7 +116,22 @@ export const Article = ({
         {!isModeSpeedread &&
           (
             <div>
-              <p>{content}</p>
+              <p className='Article__Paragraph'>{content}</p>
+              <div className='SpeedReader__Controls-Container'>
+                <div className='SpeedReader__Controls'>
+                  <div className='SpeedReader__Toggle-Information'>
+                    <span>Toggle the switch on the right to active Speed Reading &rarr;</span>
+                  </div>
+                  <div className='Toggle__Reader'>
+                    <label htmlFor='Toggle__Status' className='Toggle__Label'>SPEED READ</label>
+                    <Toggle
+                      id='Toggle__Status'
+                      defaultChecked={isModeSpeedread}
+                      onChange={handleToggle}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           )
         }
