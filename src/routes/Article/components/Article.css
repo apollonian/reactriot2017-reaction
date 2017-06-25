@@ -68,7 +68,6 @@
     width: 100%;
     height: 80px;
     max-width: 600px;
-    min-width: 420px;
     background-color: #FFF;
     box-shadow: 0 4px 14px rgba(50, 50, 94, .1), 0 3px 6px rgba(0, 0, 0, .08);
     border-radius: 4px;
@@ -299,10 +298,13 @@
     .Article__Paragraph {
         margin: 0em 1em 10em 1em;
     }
-    .SpeedReader__Controls{
+    .SpeedReader__Controls {
         padding: 0 16px;
     }
-    .SpeedReader__Toggle-Information{
+    .SpeedReader__Toggle-Information {
         width: 160px;
+    }
+    .Toggle__Label {
+        display: none;
     }
 }
