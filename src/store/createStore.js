@@ -17,7 +17,7 @@ const createStore = (initialState = {}) => {
   const enhancers = []
   let composeEnhancers = compose
 
-  if (__DEV__) {
+  if (__DEV__ || __PROD__) {
     if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function') {
       composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     }

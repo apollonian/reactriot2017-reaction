@@ -1,4 +1,5 @@
 const express = require('express')
+const compression = require('compression')
 const fetch = require('node-fetch')
 const Url = require('url')
 var Feed = require('rss-to-json')
@@ -6,6 +7,7 @@ const Cheerio = require('cheerio')
 const Slug = require('slug')
 const ArticleExtractor = require('unfluff')
 const Summary = require('node-summary')
+const path = require('path')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -106,6 +108,9 @@ app.get('/getArticleData', (request, response) => {
     response.end('Sorry, wrong api')
   }
 })
+
+app.use(compression())
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(port, (err) => {
   if (err) {
