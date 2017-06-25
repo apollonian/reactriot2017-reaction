@@ -33,11 +33,6 @@ app.get('/searchArticles', (request, response) => {
   const urlParts = Url.parse(request.url, true)
   const query = urlParts.query
 
-  // Set CORS headers
-  response.setHeader('Access-Control-Allow-Origin', '*')
-  response.setHeader('Access-Control-Request-Method', '*')
-  response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET')
-  response.setHeader('Access-Control-Allow-Headers', '*')
   if (request.method === 'OPTIONS') {
     response.writeHead(200)
     response.end()
@@ -67,11 +62,6 @@ app.get('/getArticleData', (request, response) => {
   const urlParts = Url.parse(request.url, true)
   const query = urlParts.query
 
-  // Set CORS headers
-  response.setHeader('Access-Control-Allow-Origin', '*')
-  response.setHeader('Access-Control-Request-Method', '*')
-  response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET')
-  response.setHeader('Access-Control-Allow-Headers', '*')
   if (request.method === 'OPTIONS') {
     response.writeHead(200)
     response.end()
