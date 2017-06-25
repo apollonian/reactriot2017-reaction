@@ -112,6 +112,7 @@ export const loadArticle = (id) => {
       dispatch(loadArticleSuccess())
       dispatch(changeArticleData(articleData))
       dispatch(push('/article/' + articleDetails.urlSlug))
+      dispatch(changeArticleData(articleData))
     } catch (err) {
       dispatch(loadArticleFailed(err.message))
     }
