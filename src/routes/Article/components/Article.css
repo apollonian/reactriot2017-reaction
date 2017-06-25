@@ -4,7 +4,7 @@
 }
 
 .rc-select {
-    width: 100px;
+    width: 86px;
     height: 80px;
 }
 
@@ -293,19 +293,31 @@
 }
 
 @media screen and (max-width: 480px) {
+    .Input__Link{
+        font-size: 1em;
+    }
     .Article__Title {
         font-size: 2em;
+        padding: 0 18px;
+        text-align: left;
     }
     .Article__Paragraph {
         margin: 0em 1em 10em 1em;
     }
     .SpeedReader__Controls {
+        width: 96%;
         padding: 0 16px;
     }
     .SpeedReader__Toggle-Information {
-        width: 160px;
+        width: 200px;
     }
     .Toggle__Label {
         display: none;
+    }
+    .WPM__Label {
+        margin-right: 6px;
+    }
+    .Slider__Container {
+        margin-left: 10px;
     }
 }

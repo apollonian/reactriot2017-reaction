@@ -29,7 +29,7 @@ export const HomeView = ({
       <div className='Hello__Fellow__Human'>
         <img src={hand} />
         <h1>Hey there!</h1>
-        <span>To get started, enter a term of your liking, e.g. Kitten</span>
+        <span>ReadReactive helps you speeed read trending news stories.<br />To get started, enter a term of your liking, e.g. Kitten</span>
       </div>
     }
     {searching &&
