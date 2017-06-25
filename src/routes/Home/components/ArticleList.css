@@ -1,13 +1,19 @@
+.ArticleList__Ordered-List {
+    margin-top: 6em;
+}
+
 .ArticleList__Card-Item {
     display: block;
     height: auto;
-    width: 720px;
-    background-color: #FDFDFD;
+    width: 86%;
+    max-width: 720px;
+    background-color: rgb(255, 255, 255);
     margin: 0 auto;
     margin-bottom: 4em;
+    border-radius: 8px;
     padding: 3.236em 2em 2em 2em;
     transition: all 0.5s ease-in;
-    box-shadow: 0 2rem 4rem -3rem rgba(11, 11, 11, 0.2);
+    box-shadow: 0 4px 2em -2em rgba(50, 50, 94, .1), 0 3px 6px rgba(0, 0, 0, .08);
 }
 
 .ArticleList__Card-Item:hover {
@@ -27,13 +33,15 @@
     font-family: 'Karla';
     text-transform: uppercase;
     font-weight: 700;
-    opacity: 0.3;
+    opacity: 0.5;
+    color: #6E7D91;
 }
 
 .Title {
     font-family: 'Playfair Display';
     font-size: 2em;
     padding: 12px 0;
+    color: #1F2755;
 }
 
 .Desc {
@@ -42,10 +50,12 @@
     padding: 1em 0;
     font-family: 'Muli';
     z-index: 98;
+    color: #32325F;
 }
 
 .Image {
     margin-left: calc(-40px - 2em);
     margin-top: calc(-40px - 3.236em);
     border-radius: 4px;
+    box-shadow: 0 2rem 4rem -3rem rgba(11, 11, 11, 0.2);
 }

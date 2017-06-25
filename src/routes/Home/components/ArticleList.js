@@ -12,8 +12,8 @@ export const ArticleList = ({
 }) => {
   const displayList = articleList.map(
     (listItem, index) => (
-      <li 
-        key={index} 
+      <li
+        key={index}
         className='ArticleList__Ordered-List--item'
         onClick={() => loadArticle(index)} >
         <ul className='ArticleList__Card-Item'>

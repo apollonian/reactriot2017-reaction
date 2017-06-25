@@ -84,7 +84,7 @@ export const Article = ({
               </div>
               <div className='SpeedReader__Controls-Container'>
                 <div className='SpeedReader__Controls'>
-                  <div>
+                  <div className='SpeedReader__Controls-Left'>
                     <div className='SpeedReader__Start'>
                       { isModeSpeedread
                         ? (<img src={play} onClick={handleButton} />)
@@ -118,7 +118,7 @@ export const Article = ({
               <div className='SpeedReader__Controls-Container'>
                 <div className='SpeedReader__Controls'>
                   <div className='SpeedReader__Toggle-Information'>
-                    <span>Toggle the switch on the right to active Speed Reading &rarr;</span>
+                    <span className='Info'>Toggle to speed read this article &rarr;</span>
                   </div>
                   <div className='Toggle__Reader'>
                     <label htmlFor='Toggle__Status' className='Toggle__Label'>SPEED READ</label>
