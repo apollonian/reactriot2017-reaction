@@ -132,7 +132,7 @@ export const Article = ({
               <div className='SpeedReader__Controls-Container'>
                 <div className='SpeedReader__Controls'>
                   <div className='SpeedReader__Toggle-Information'>
-                    <span className='Info'>Toggle to speed read this article &rarr;</span>
+                    <span className='Info'>Toggle to speed read! &rarr;</span>
                   </div>
                   <div className='Toggle__Reader'>
                     <label htmlFor='Toggle__Status' className='Toggle__Label'>SPEED READ</label>
