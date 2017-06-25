@@ -3,6 +3,20 @@
     width: 320px;
 }
 
+.rc-select {
+    width: 120px;
+}
+
+.rc-select-selection {
+    border-radius: 2px;
+    margin-top: 26px;
+}
+
+.Slider__Container {
+    height: 80px;
+}
+
+
 .Article {
     max-width: 720px;
     margin: 0 auto;
@@ -42,6 +56,7 @@
 .SpeedReader__Controls {
     display: flex;
     align-items: center;
+    /*justify-content: flex-end;*/
     justify-content: space-between;
     margin: 0 auto;
     width: 100%;
@@ -55,10 +70,6 @@
 }
 
 .SpeedReader__Controls img {
-    /*height: 42px;*/
-    /*width: 42px;*/
-    /*display: block;*/
-    /*border-radius: 42px;*/
     margin-top: 16px;
     opacity: 0.72;
 }

@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Toggle from 'react-toggle'
 import Slider, { createSliderWithTooltip } from 'rc-slider'
+import Select, {Option, OptGroup} from 'rc-select'
 import 'rc-slider/dist/rc-slider.css'
+import 'rc-select/assets/index.css'
 import './Article.css'
 import play from 'material-design-icons/av/svg/production/ic_play_circle_filled_48px.svg'
 import pause from 'material-design-icons/av/svg/production/ic_pause_circle_filled_48px.svg'
@@ -62,6 +64,15 @@ export const Article = ({
     startSpeedReading()
   }
 
+  const options = [
+      <Option value="100">100</Option>,
+      <Option value="200">200</Option>,
+      <Option value="300">300</Option>,
+      <Option value="400">400</Option>,
+      <Option value="500">500</Option>,
+      <Option value="600">600</Option>
+  ]
+
   return (
     <div>
       <div className='Article'>
@@ -81,6 +92,7 @@ export const Article = ({
               </div>
               <div className='SpeedReader__Controls-Container'>
                 <div className='SpeedReader__Controls'>
+                  <div>
                   <div className='SpeedReader__Start'>
                     {
                       isModeSpeedread
@@ -89,15 +101,10 @@ export const Article = ({
                   </div>
                   <div className='Slider__Container'>
                     <div className='WPM__Label'>WPM</div>
-                    <SliderWithTooltip
-                      className='SpeedReader__Slider'
-                      defaultValue={speed}
-                      min={100}
-                      max={800}
-                      step={50}
-                      dots={false}
-                      onChange={handleSliderChange}
-                    />
+                      <Select defaultValue={'100'} showSearch={false} onChange={handleSliderChange}>
+                        {options}
+                      </Select>
+                  </div>
                   </div>
                   <div className='Toggle__Reader'>
                     <label htmlFor='Toggle__Status' className='Toggle__Label'>SPEED READ</label>
