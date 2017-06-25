@@ -5,7 +5,8 @@
 .ArticleList__Card-Item {
     display: block;
     height: auto;
-    width: 720px;
+    width: 86%;
+    max-width: 720px;
     background-color: rgb(255, 255, 255);
     margin: 0 auto;
     margin-bottom: 4em;
