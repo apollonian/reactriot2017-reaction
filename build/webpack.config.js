@@ -2,6 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin')
+const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin')
+const InlineChunkManifestHtmlWebpackPlugin = require('inline-chunk-manifest-html-webpack-plugin')
 const project = require('../project.config')
 
 const inProject = path.resolve.bind(path, project.basePath)
@@ -200,7 +203,7 @@ if (__DEV__) {
 // Bundle Splitting
 // ------------------------------------
 if (!__TEST__) {
-  const bundles = ['normalize', 'manifest']
+  const bundles = ['normalize']
 
   if (project.vendors && project.vendors.length) {
     bundles.unshift('vendor')
@@ -232,7 +235,10 @@ if (__PROD__) {
         if_return: true,
         join_vars: true,
       },
-    })
+    }),
+    new StyleExtHtmlWebpackPlugin(),
+    new ResourceHintWebpackPlugin(),
+    new InlineChunkManifestHtmlWebpackPlugin()
   )
 }
 
