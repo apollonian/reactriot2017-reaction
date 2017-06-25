@@ -2,9 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin')
-const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin')
-const InlineChunkManifestHtmlWebpackPlugin = require('inline-chunk-manifest-html-webpack-plugin')
 const project = require('../project.config')
 
 const inProject = path.resolve.bind(path, project.basePath)
@@ -21,10 +18,8 @@ const config = {
     tls: 'empty'
   },
   entry: {
-    normalize: [
-      inProjectSrc('normalize'),
-    ],
     main: [
+      inProjectSrc('normalize'),
       inProjectSrc(project.main),
     ],
   },
@@ -200,18 +195,6 @@ if (__DEV__) {
   )
 }
 
-// Bundle Splitting
-// ------------------------------------
-if (!__TEST__) {
-  const bundles = ['normalize']
-
-  if (project.vendors && project.vendors.length) {
-    bundles.unshift('vendor')
-    config.entry.vendor = project.vendors
-  }
-  config.plugins.push(new webpack.optimize.CommonsChunkPlugin({ names: bundles }))
-}
-
 // Production Optimizations
 // ------------------------------------
 if (__PROD__) {
@@ -235,10 +218,7 @@ if (__PROD__) {
         if_return: true,
         join_vars: true,
       },
-    }),
-    new StyleExtHtmlWebpackPlugin(),
-    new ResourceHintWebpackPlugin(),
-    new InlineChunkManifestHtmlWebpackPlugin()
+    })
   )
 }
 
