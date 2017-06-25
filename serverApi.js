@@ -1,11 +1,29 @@
 const http = require('http')
 const url = require('url')
 var Feed = require('rss-to-json')
+const cheerio = require('cheerio')
+
 const port = process.env.PORT || 3000
 
+const formatList = (apiList) => {
+  return apiList.map(
+    (oldListItem) => {
+      var newListItem = {}
+      const parsedHtml = cheerio.load(oldListItem.description)
+      newListItem['url'] = url.parse(oldListItem.url, true).url
+      newListItem['imageUrl'] = parsedHtml('img').attr('src')
+      newListItem['publication'] = parsedHtml('[size="-2"]').text()
+      newListItem['title'] = parsedHtml('.lh > a > b').text()
+      newListItem['description'] = parsedHtml('.lh > font:nth-of-type(2)').html()
+
+      return newListItem
+    }
+  )
+}
+
 const requestHandler = (request, response) => {
-  var urlParts = url.parse(request.url, true)
-  var query = urlParts.query
+  const urlParts = url.parse(request.url, true)
+  const query = urlParts.query
 
   // Set CORS headers
   response.setHeader('Access-Control-Allow-Origin', '*')
@@ -24,9 +42,11 @@ const requestHandler = (request, response) => {
         if (err) {
           return console.log('something bad happened', err)
         }
-        // console.log(rss.items)
+
+        const formattedList = formatList(rss.items)
+
         response.writeHead(200)
-        response.end(JSON.stringify(rss.items))
+        response.end(JSON.stringify(formattedList))
       }
     )
   } else {
