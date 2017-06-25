@@ -1,3 +1,7 @@
+.ArticleList__Ordered-List {
+    margin-top: 6em;
+}
+
 .ArticleList__Card-Item {
     display: block;
     height: auto;
