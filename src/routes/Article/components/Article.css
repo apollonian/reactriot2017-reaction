@@ -48,7 +48,7 @@
 
 .SpeedReader__Screen {
     display: flex;
-    margin-bottom: 10em;
+    margin: 1em 1em 10em 1em;
 }
 
 .SpeedReader__Controls-Container {
@@ -146,10 +146,6 @@
     display: block;
     border-radius: 72px;
     background-color: #343434;
-}
-
-.SpeedReader__Screen {
-    margin: 80px 0;
 }
 
 .SpeedReader__Active-Word {
@@ -294,4 +290,13 @@
     -webkit-box-shadow: 0px 0px 5px 5px #0099E0;
     -moz-box-shadow: 0px 0px 5px 5px #0099E0;
     box-shadow: 0px 0px 5px 5px #0099E0;
+}
+
+@media screen and (max-width: 480px) {
+    .Article__Title {
+        font-size: 2em;
+    }
+    .Article__Paragraph {
+        margin: 0em 1em 10em 1em;
+    }
 }

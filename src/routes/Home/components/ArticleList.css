@@ -59,3 +59,18 @@
     border-radius: 4px;
     box-shadow: 0 2rem 4rem -3rem rgba(11, 11, 11, 0.2);
 }
+
+@media screen and (max-width: 480px) {
+    .Title {
+        font-size: 1.5em;
+    }
+    .Image {
+        margin-left: calc(32px - 2em);
+        margin-top: calc(-40px - 3.236em);
+        border-radius: 4px;
+        box-shadow: 0 2rem 4rem -3rem rgba(11, 11, 11, 0.2);
+    }
+    .ArticleList__Ordered-List {
+        padding-left: 0px;
+    }
+}

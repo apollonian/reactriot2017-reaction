@@ -90,7 +90,7 @@ app.get('/getArticleData', (request, response) => {
             return console.log('err is ', err.message)
           } else {
             var summaryInText = {}
-            if (!(text in tutorTimes) || articleData.text == '') {
+            if (!('text' in articleData) || articleData.text == '') {
               var summaryInText = {text: summary}
             }
             const summarizedArticleData = Object.assign({}, articleData, summaryInText,
