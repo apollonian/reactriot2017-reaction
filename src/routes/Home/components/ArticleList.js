@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import DOMPurify from 'dompurify'
+import './ArticleList.css'
 
 export const ArticleList = ({
   articleList

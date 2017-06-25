@@ -1,0 +1,57 @@
+.Search__Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 15vh;
+    width: 100%;
+}
+
+.Input__Link {
+    display: block;
+    border: none;
+    background-color: #FDFDFD;
+    color: #1D1D5C;
+    font-weight: 400;
+    letter-spacing: -1px;
+    border-radius: 10000px;
+    font-family: 'Karla';
+    height: 72px;
+    width: 600px;
+    outline: 0;
+    font-size: 22px;
+    padding: 0 32px;
+    box-shadow: 0 30px 40px 0 rgba(170, 208, 235, 0.4), inset 0 -4px 0 0 rgba(100, 115, 160, 0.08);
+}
+
+.Submit__Button {
+    background-color: #3ECF8E;
+    color: #FDFDFD;
+    outline: 0;
+    display: block;
+    font-family: 'Karla';
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: -64px;
+    margin-left: 536px;
+    border: none;
+    height: 56px;
+    width: 56px;
+    border-radius: 200px;
+    box-shadow: 0 10px 16px 0 rgba(16, 36, 94, 0.2);
+}
+
+.Submit__Button:hover {
+    transform: translateY(-1px);
+    transition: 0.1s ease-in;
+    cursor: pointer;
+    box-shadow: 0 10px 24px 0 rgba(16, 36, 94, 0.2);
+}
+
+::-webkit-input-placeholder,
+ ::-moz-placeholder,
+ :-ms-input-placeholder,
+ :-moz-placeholder {
+    color: #6B7C93;
+}

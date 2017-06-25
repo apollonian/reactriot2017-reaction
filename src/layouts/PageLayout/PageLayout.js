@@ -1,17 +1,23 @@
 import React from 'react'
-import { IndexLink, Link } from 'react-router'
+// import { IndexLink, Link } from 'react-router'
 import PropTypes from 'prop-types'
 import './PageLayout.scss'
 
 export const PageLayout = ({ children }) => (
-  <div className='container text-center'>
-    <h1>ReadReactive</h1>
-    <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Home</IndexLink>
+  <div className='PageLayout'>
+    <div className='PageLayout__Header'>
+      <h1 className='Logo'>
+        <span className='Read'>Read</span>
+        <span className='Reactive'>Reactive</span>
+      </h1>
+      <div className='Pitch'>Search for topics, get trending results, and read them uniquely!</div>
+    </div>
+    {/* <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Home</IndexLink>
     {' · '}
     <Link to={{ pathname: '/article/asdf' }}
       activeClassName='page-layout__nav-item--active'>
         Article
-    </Link>
+    </Link> */}
     <div className='page-layout__viewport'>
       {children}
     </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Search from './Search'
 import ArticleList from './ArticleList'
+import './HomeView.css'
 
 export const HomeView = ({
   searchAsync,
@@ -13,7 +14,6 @@ export const HomeView = ({
   articleList
 }) => (
   <div>
-    <h4>ReadReactive</h4>
     <Search
       searchInputText={searchInputText}
       searching={searching}
