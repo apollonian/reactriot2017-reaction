@@ -89,6 +89,7 @@ export const searchAsync = () => {
       let articleList = await apiResult.json()
       if (articleList.length === 0) {
         dispatch(searchFailed('No results returned'))
+        dispatch(setArticleList([]))
       } else {
         dispatch(searchSuccess())
         dispatch(setArticleList(articleList))

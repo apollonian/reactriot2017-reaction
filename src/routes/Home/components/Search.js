@@ -16,7 +16,9 @@ export const Search = ({
         className='Search__Form'
         onSubmit={event => {
           event.preventDefault()
-          searchAsync()
+          if (searchInputText != '') {
+            searchAsync()
+          }
         }}
       >
         <input
