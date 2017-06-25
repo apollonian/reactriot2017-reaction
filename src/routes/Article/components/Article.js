@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Toggle from 'react-toggle'
-import Select, {Option, OptGroup} from 'rc-select'
+import Select, { Option } from 'rc-select'
 import 'rc-select/assets/index.css'
 import './Article.css'
 import play from 'material-design-icons/av/svg/production/ic_play_circle_filled_48px.svg'
@@ -17,7 +17,6 @@ export const Article = ({
   changeArticleMode,
   changeArticleSpeedreadState,
   changeArticleSpeedreadSpeed,
-  changeArticleData,
   setIntervalId,
   gotoNextWord,
   startSpeedReading,
@@ -32,16 +31,15 @@ export const Article = ({
   intervalId
 }) => {
   const marks = [
-      <Option value="100">100</Option>,
-      <Option value="200">200</Option>,
-      <Option value="300">300</Option>,
-      <Option value="400">400</Option>,
-      <Option value="500">500</Option>,
-      <Option value="600">600</Option>,
-      <Option value="700">700</Option>,
-      <Option value="800">800</Option>
+    <Option value='100'>100</Option>,
+    <Option value='200'>200</Option>,
+    <Option value='300'>300</Option>,
+    <Option value='400'>400</Option>,
+    <Option value='500'>500</Option>,
+    <Option value='600'>600</Option>,
+    <Option value='700'>700</Option>,
+    <Option value='800'>800</Option>
   ]
-
 
   const isModeSpeedread = (mode === ARTICLE_MODE_SPEEDREAD)
 
@@ -87,18 +85,18 @@ export const Article = ({
               <div className='SpeedReader__Controls-Container'>
                 <div className='SpeedReader__Controls'>
                   <div>
-                  <div className='SpeedReader__Start'>
-                    {
-                      isModeSpeedread
-                      ? (<img src={play} onClick={handleButton} />) : (<img src={pause} onClick={handleButton} />)
-                    }
-                  </div>
-                  <div className='Slider__Container'>
-                    <div className='WPM__Label'>WPM</div>
+                    <div className='SpeedReader__Start'>
+                      { isModeSpeedread
+                        ? (<img src={play} onClick={handleButton} />)
+                        : (<img src={pause} onClick={handleButton} />)
+                      }
+                    </div>
+                    <div className='Slider__Container'>
+                      <div className='WPM__Label'>WPM</div>
                       <Select defaultValue={'100'} showSearch={false} onChange={handleSliderChange}>
                         {marks}
                       </Select>
-                  </div>
+                    </div>
                   </div>
                   <div className='Toggle__Reader'>
                     <label htmlFor='Toggle__Status' className='Toggle__Label'>SPEED READ</label>
@@ -144,7 +142,6 @@ Article.propTypes = {
   changeArticleMode: PropTypes.func.isRequired,
   changeArticleSpeedreadState: PropTypes.func.isRequired,
   changeArticleSpeedreadSpeed: PropTypes.func.isRequired,
-  changeArticleData: PropTypes.func.isRequired,
   setIntervalId: PropTypes.func.isRequired,
   gotoNextWord: PropTypes.func.isRequired,
   startSpeedReading: PropTypes.func.isRequired,
