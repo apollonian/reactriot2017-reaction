@@ -25,6 +25,7 @@ export const Search = ({
           value={searchInputText}
           placeholder={'Search for topics e.g. Felis catus'}
           onChange={event => setSearchInputText(event.target.value)}
+          autoFocus
       />
         <input className='Submit__Button' type='submit' value='GO!' />
       </form>

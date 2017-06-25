@@ -6,6 +6,7 @@ import './PageLayout.scss'
 export const PageLayout = ({ children }) => (
   <div className='PageLayout'>
     <div className='PageLayout__Header'>
+      <div id='hackbit-vote-widget' />
       <a href='/'>
         <h1 className='Logo'>
           <span className='Read'>Read</span>
