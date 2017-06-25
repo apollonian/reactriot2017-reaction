@@ -22,9 +22,10 @@
 }
 
 .Article {
-    max-width: 720px;
+    max-width: 46em;
     margin: 0 auto;
     text-align: left;
+    padding: 0em 1em;
 }
 
 .Article__Title {
