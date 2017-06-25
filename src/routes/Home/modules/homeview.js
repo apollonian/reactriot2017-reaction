@@ -54,7 +54,7 @@ export function setArticleList (articleList = []) {
 export const searchAsync = () => {
   return async (dispatch, getState) => {
     const searchTextUri = encodeURI(getState().homeview.searchInputText)
-    const fullUrl = 'https://news-api-google.herokuapp.com/?q=' + searchTextUri
+    const fullUrl = 'https://news-api-google.herokuapp.com/searchArticles?q=' + searchTextUri
     dispatch(searchRequest())
     try {
       let apiResult = await fetch(fullUrl)
