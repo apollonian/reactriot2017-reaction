@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
 import './styles/main.scss'
+import WebFont from 'webfontloader'
 
 // Store Initialization
 // ------------------------------------
@@ -57,3 +58,9 @@ if (__DEV__) {
 // Let's Go!
 // ------------------------------------
 if (!__TEST__) render()
+
+WebFont.load({
+  google: {
+    families: ['Karla', 'Muli', 'Playfair Display:700']
+  }
+})
