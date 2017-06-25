@@ -89,10 +89,16 @@ app.get('/getArticleData', (request, response) => {
           if (err) {
             return console.log('err is ', err.message)
           } else {
-            const summarizedArticleData = Object.assign({}, articleData, {
-              summary,
-              slug: query.slug
-            })
+            var summaryInText = {}
+            if (!(text in tutorTimes) || articleData.text == '') {
+              var summaryInText = {text: summary}
+            }
+            const summarizedArticleData = Object.assign({}, articleData, summaryInText,
+              {
+                summary,
+                slug: query.slug
+              }
+            )
             response.writeHead(200)
             response.end(JSON.stringify(summarizedArticleData))
           }
