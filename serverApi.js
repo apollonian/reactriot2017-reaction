@@ -2,6 +2,7 @@ const http = require('http')
 const url = require('url')
 var Feed = require('rss-to-json')
 const cheerio = require('cheerio')
+const slug = require('slug')
 
 const port = process.env.PORT || 3000
 
@@ -16,6 +17,7 @@ const formatList = (apiList) => {
       newListItem['title'] = parsedHtml('.lh > a > b').text()
       newListItem['description'] = parsedHtml('.lh > font:nth-of-type(2)').html()
       newListItem['created'] = oldListItem.created
+      newListItem['urlSlug'] = slug(newListItem['title'])
       return newListItem
     }
   )
