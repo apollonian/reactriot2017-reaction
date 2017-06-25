@@ -1,0 +1,25 @@
+.Hello__Fellow__Human {
+    display: flex;
+    align-items: center;
+    height: 65vh;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Hello__Fellow__Human>img {
+    height: 64px;
+}
+
+.Hello__Fellow__Human>h1 {
+    font-size: 1.618em;
+    margin: 0.72em 0 0.444em;
+    color: #32325F;
+}
+
+.Hello__Fellow__Human>span {
+    text-align: center;
+    padding: 0 16%;
+    font-size: 1em;
+    margin: 0;
+    color: #6E7D91;
+}
