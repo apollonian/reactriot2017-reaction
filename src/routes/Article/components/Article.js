@@ -17,7 +17,6 @@ export const Article = ({
   changeArticleMode,
   changeArticleSpeedreadState,
   changeArticleSpeedreadSpeed,
-  changeArticleData,
   setIntervalId,
   gotoNextWord,
   startSpeedReading,
@@ -87,10 +86,10 @@ export const Article = ({
                 <div className='SpeedReader__Controls'>
                   <div>
                     <div className='SpeedReader__Start'>
-                      {
-                      isModeSpeedread
-                      ? (<img src={play} onClick={handleButton} />) : (<img src={pause} onClick={handleButton} />)
-                    }
+                      { isModeSpeedread
+                        ? (<img src={play} onClick={handleButton} />)
+                        : (<img src={pause} onClick={handleButton} />)
+                      }
                     </div>
                     <div className='Slider__Container'>
                       <div className='WPM__Label'>WPM</div>
@@ -143,7 +142,6 @@ Article.propTypes = {
   changeArticleMode: PropTypes.func.isRequired,
   changeArticleSpeedreadState: PropTypes.func.isRequired,
   changeArticleSpeedreadSpeed: PropTypes.func.isRequired,
-  changeArticleData: PropTypes.func.isRequired,
   setIntervalId: PropTypes.func.isRequired,
   gotoNextWord: PropTypes.func.isRequired,
   startSpeedReading: PropTypes.func.isRequired,

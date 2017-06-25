@@ -1,30 +1,34 @@
-const http = require('http')
-const url = require('url')
+const express = require('express')
+const fetch = require('node-fetch')
+const Url = require('url')
 var Feed = require('rss-to-json')
-const cheerio = require('cheerio')
-const slug = require('slug')
+const Cheerio = require('cheerio')
+const Slug = require('slug')
+const ArticleExtractor = require('unfluff')
+const Summary = require('node-summary')
 
+const app = express()
 const port = process.env.PORT || 3000
 
 const formatList = (apiList) => {
   return apiList.map(
     (oldListItem) => {
       var newListItem = {}
-      const parsedHtml = cheerio.load(oldListItem.description)
-      newListItem['url'] = url.parse(oldListItem.url, true).query.url
+      const parsedHtml = Cheerio.load(oldListItem.description)
+      newListItem['url'] = Url.parse(oldListItem.url, true).query.url
       newListItem['imageUrl'] = parsedHtml('img').attr('src')
       newListItem['publication'] = parsedHtml('[size="-2"]').text()
       newListItem['title'] = parsedHtml('.lh > a > b').text()
       newListItem['description'] = parsedHtml('.lh > font:nth-of-type(2)').html()
       newListItem['created'] = oldListItem.created
-      newListItem['urlSlug'] = slug(newListItem['title'])
+      newListItem['urlSlug'] = Slug(newListItem['title'])
       return newListItem
     }
   )
 }
 
-const requestHandler = (request, response) => {
-  const urlParts = url.parse(request.url, true)
+app.get('/searchArticles', (request, response) => {
+  const urlParts = Url.parse(request.url, true)
   const query = urlParts.query
 
   // Set CORS headers
@@ -55,13 +59,58 @@ const requestHandler = (request, response) => {
     response.writeHead(200)
     response.end('Sorry, wrong api')
   }
-}
+})
 
-const server = http.createServer(requestHandler)
+app.get('/getArticleData', (request, response) => {
+  const urlParts = Url.parse(request.url, true)
+  const query = urlParts.query
 
-server.listen(port, (err) => {
+  // Set CORS headers
+  response.setHeader('Access-Control-Allow-Origin', '*')
+  response.setHeader('Access-Control-Request-Method', '*')
+  response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET')
+  response.setHeader('Access-Control-Allow-Headers', '*')
+  if (request.method === 'OPTIONS') {
+    response.writeHead(200)
+    response.end()
+    return
+  }
+
+  if ('url' in query) {
+    fetch(query.url)
+      .then(function (res) {
+        return res.text()
+      })
+      .then(function (body) {
+        const articleData = ArticleExtractor(body)
+        Summary.summarize(articleData.softTitle, articleData.text, function (err, summary) {
+          if (err) {
+            return console.log('err is ', err.message)
+          } else {
+            const summarizedArticleData = Object.assign({}, articleData, {
+              summary,
+              slug: query.slug
+            })
+            response.writeHead(200)
+            response.end(JSON.stringify(summarizedArticleData))
+          }
+        })
+      })
+      .catch(function (err) {
+        console.log(err)
+        response.writeHead(200)
+        response.end()
+      })
+  } else {
+    response.writeHead(200)
+    response.end('Sorry, wrong api')
+  }
+})
+
+app.listen(port, (err) => {
   if (err) {
     return console.log('something bad happened', err)
   }
+
   console.log(`server is listening on ${port}`)
 })

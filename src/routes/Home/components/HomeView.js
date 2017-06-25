@@ -7,11 +7,15 @@ import './HomeView.css'
 export const HomeView = ({
   searchAsync,
   setSearchInputText,
+  loadArticle,
   searchInputText,
   searching,
   searchFailure,
   searchFailureMessage,
-  articleList
+  articleList,
+  loadingArticle,
+  loadArticleFailure,
+  loadArticleFailureMessage
 }) => (
   <div>
     <Search
@@ -24,6 +28,10 @@ export const HomeView = ({
     />
     <ArticleList
       articleList={articleList}
+      loadArticle={loadArticle}
+      loadingArticle={loadingArticle}
+      loadArticleFailure={loadArticleFailure}
+      loadArticleFailureMessage={loadArticleFailureMessage}
     />
   </div>
 )
@@ -31,11 +39,15 @@ export const HomeView = ({
 HomeView.propTypes = {
   searchAsync: PropTypes.func.isRequired,
   setSearchInputText: PropTypes.func.isRequired,
+  loadArticle: PropTypes.func.isRequired,
   searchInputText: PropTypes.string.isRequired,
   searching: PropTypes.bool.isRequired,
   searchFailure: PropTypes.bool.isRequired,
   searchFailureMessage: PropTypes.string.isRequired,
-  articleList: PropTypes.array.isRequired
+  articleList: PropTypes.array.isRequired,
+  loadingArticle: PropTypes.bool.isRequired,
+  loadArticleFailure: PropTypes.bool.isRequired,
+  loadArticleFailureMessage: PropTypes.string.isRequired
 }
 
 export default HomeView

@@ -63,8 +63,8 @@ export function changeArticleData (data = {
   return {
     type    : ARTICLE_ACTION_SET_ARTICLE_DATA,
     payload : {
-      'heading': data.heading,
-      'content': data.content
+      heading: data.softTitle,
+      content: data.text
     }
   }
 }

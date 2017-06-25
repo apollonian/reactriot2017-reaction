@@ -4,11 +4,18 @@ import DOMPurify from 'dompurify'
 import './ArticleList.css'
 
 export const ArticleList = ({
-  articleList
+  articleList,
+  loadArticle,
+  loadingArticle,
+  loadArticleFailure,
+  loadArticleFailureMessage
 }) => {
   const displayList = articleList.map(
     (listItem, index) => (
-      <li key={index} className='ArticleList__Ordered-List--item'>
+      <li 
+        key={index} 
+        className='ArticleList__Ordered-List--item'
+        onClick={() => loadArticle(index)} >
         <ul className='ArticleList__Card-Item'>
           <img className='Image' src={listItem.imageUrl} />
           <li className='Publication'>{listItem.publication}</li>
@@ -34,7 +41,11 @@ export const ArticleList = ({
 }
 
 ArticleList.propTypes = {
-  articleList: PropTypes.array.isRequired
+  articleList: PropTypes.array.isRequired,
+  loadArticle: PropTypes.func.isRequired,
+  loadingArticle: PropTypes.bool.isRequired,
+  loadArticleFailure: PropTypes.bool.isRequired,
+  loadArticleFailureMessage: PropTypes.string.isRequired
 }
 
 export default ArticleList
