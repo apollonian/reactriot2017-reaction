@@ -1,8 +1,38 @@
+.PageLayout__Header {
+    height: 35vh;
+    display: flex;
+    align-items: center; // justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(135deg, #f7f7fa 0%, #D0E3F2 100%);
+}
+
+.Logo {
+    font-family: 'Karla';
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1em;
+    letter-spacing: 0.24em;
+    margin-top: 4em;
+    .Read {
+        opacity: 0.6;
+    }
+    .Reactive {
+        opacity: 1;
+    }
+}
+
+.Pitch {
+    display: none;
+    font-family: 'Muli';
+    font-weight: 400;
+    font-size: 1em;
+}
+
 .page-layout__viewport {
-  padding-top: 4rem;
+    padding-top: 4rem;
 }
 
 .page-layout__nav-item--active {
-  font-weight: bold;
-  text-decoration: underline;
+    font-weight: bold;
+    text-decoration: underline;
 }

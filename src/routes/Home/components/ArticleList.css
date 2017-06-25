@@ -1,0 +1,51 @@
+.ArticleList__Card-Item {
+    display: block;
+    height: auto;
+    width: 720px;
+    background-color: #FDFDFD;
+    margin: 0 auto;
+    margin-bottom: 4em;
+    padding: 3.236em 2em 2em 2em;
+    transition: all 0.5s ease-in;
+    box-shadow: 0 2rem 4rem -3rem rgba(11, 11, 11, 0.2);
+}
+
+.ArticleList__Card-Item:hover {
+    cursor: pointer;
+    box-shadow: 0 3rem 5rem -2rem rgba(11, 11, 11, 0.2);
+}
+
+.ArticleList__Ordered-List,
+.ArticleList__Ordered-List ul,
+.ArticleList__Ordered-List li {
+    list-style: none;
+}
+
+.Publication {
+    margin-top: 0.86em;
+    font-size: 0.86em;
+    font-family: 'Karla';
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.3;
+}
+
+.Title {
+    font-family: 'Playfair Display';
+    font-size: 2em;
+    padding: 12px 0;
+}
+
+.Desc {
+    font-size: 1em;
+    line-height: 1.618em;
+    padding: 1em 0;
+    font-family: 'Muli';
+    z-index: 98;
+}
+
+.Image {
+    margin-left: calc(-40px - 2em);
+    margin-top: calc(-40px - 3.236em);
+    border-radius: 4px;
+}

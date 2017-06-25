@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import DOMPurify from 'dompurify'
+import './ArticleList.css'
 
 export const ArticleList = ({
   articleList,
@@ -11,17 +12,20 @@ export const ArticleList = ({
 }) => {
   const displayList = articleList.map(
     (listItem, index) => (
-      <li key={index} onClick={() => loadArticle(index)}>
-        <ul>
-          <li>url: {listItem.url}</li>
-          <li> urlSlug: {listItem.urlSlug} </li>
-          <li><img src={listItem.imageUrl} /></li>
-          <li>publication: {listItem.publication}</li>
-          <li>title: {listItem.title}</li>
-          <li>description:
-            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(listItem.description) }} />
+      <li 
+        key={index} 
+        className='ArticleList__Ordered-List--item'
+        onClick={() => loadArticle(index)} >
+        <ul className='ArticleList__Card-Item'>
+          <img className='Image' src={listItem.imageUrl} />
+          <li className='Publication'>{listItem.publication}</li>
+          <li className='Title'>{listItem.title}</li>
+          {/* <li>{listItem.url}</li> */}
+          {/* <li>urlSlug: {listItem.urlSlug} </li> */}
+          <li className='Description__Overlay'>
+            <div className='Desc' dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(listItem.description) }} />
           </li>
-          <li>created: {listItem.created}</li>
+          {/* <li>created: {listItem.created}</li> */}
         </ul>
       </li>
     )
@@ -29,7 +33,7 @@ export const ArticleList = ({
 
   return (
     <div>
-      <ol>
+      <ol className='ArticleList__Ordered-List'>
         { displayList }
       </ol>
     </div>
