@@ -12,6 +12,11 @@ const __TEST__ = project.env === 'test'
 const __PROD__ = project.env === 'production'
 
 const config = {
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
   entry: {
     normalize: [
       inProjectSrc('normalize'),
