@@ -26,3 +26,15 @@ body {
 a {
     text-decoration: none;
 }
+
+#hackbit-vote-widget {
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 100%;
+}
+
+.hb-vote-widget {
+    width: 360px;
+    border-radius: 0 0 4px 0 !important;
+}
