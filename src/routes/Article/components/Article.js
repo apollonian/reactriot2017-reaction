@@ -65,7 +65,7 @@ export const Article = ({
     }
   }
 
-  const handleSliderChange = (speed) => {
+  const handleSelectSpeedChange = (speed) => {
     stopSpeedReading()
     changeArticleSpeedreadSpeed(speed)
     startSpeedReading()
@@ -99,7 +99,11 @@ export const Article = ({
                     </div>
                     <div className='Slider__Container'>
                       <div className='WPM__Label'>WPM</div>
-                      <Select defaultValue={'100'} showSearch={false} onChange={handleSliderChange}>
+                      <Select
+                        defaultValue={'100'}
+                        value={speed.toString()}
+                        showSearch={false}
+                        onChange={handleSelectSpeedChange} >
                         {marks}
                       </Select>
                     </div>
