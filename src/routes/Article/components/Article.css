@@ -299,4 +299,10 @@
     .Article__Paragraph {
         margin: 0em 1em 10em 1em;
     }
+    .SpeedReader__Controls{
+        padding: 0 16px;
+    }
+    .SpeedReader__Toggle-Information{
+        width: 160px;
+    }
 }
