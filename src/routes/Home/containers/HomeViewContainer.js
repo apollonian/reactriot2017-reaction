@@ -3,7 +3,7 @@ import {
   setSearchInputText,
   searchAsync,
   loadArticle
- } from '../modules/homeview'
+} from '../modules/homeview'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -23,16 +23,16 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) =>
-({
-  searchInputText: state.homeview.searchInputText,
-  searching: state.homeview.searching,
-  searchFailure: state.homeview.searchFailure,
-  articleList: state.homeview.articleList,
-  searchFailureMessage: state.homeview.searchFailureMessage,
-  'loadingArticle': state.homeview.loadingArticle,
-  'loadArticleFailure': state.homeview.loadArticleFailure,
-  'loadArticleFailureMessage': state.homeview.loadArticleFailureMessage
-})
+  ({
+    searchInputText: state.homeview.searchInputText,
+    searching: state.homeview.searching,
+    searchFailure: state.homeview.searchFailure,
+    articleList: state.homeview.articleList,
+    searchFailureMessage: state.homeview.searchFailureMessage,
+    'loadingArticle': state.homeview.loadingArticle,
+    'loadArticleFailure': state.homeview.loadArticleFailure,
+    'loadArticleFailureMessage': state.homeview.loadArticleFailureMessage
+  })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 

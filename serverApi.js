@@ -81,7 +81,7 @@ app.get('/getArticleData', (request, response) => {
           } else {
             var summaryInText = {}
             if (!('text' in articleData) || articleData.text == '') {
-              var summaryInText = {text: summary}
+              var summaryInText = { text: summary }
             }
             const summarizedArticleData = Object.assign({}, articleData, summaryInText,
               {

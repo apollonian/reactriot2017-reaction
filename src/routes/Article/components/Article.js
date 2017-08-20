@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Toggle from 'react-toggle'
 import Select, { Option } from 'rc-select'
-import 'rc-select/assets/index.css'
 import './Article.css'
 import play from 'material-design-icons/av/svg/production/ic_play_circle_filled_48px.svg'
 import pause from 'material-design-icons/av/svg/production/ic_pause_circle_filled_48px.svg'
@@ -130,7 +129,7 @@ export const Article = ({
             <div>
               <p className='Article__Paragraph'>
                 {content.split('\n').map((item, key) => {
-                  return <span key={key}>{item}<br/></span>
+                  return <span key={key}>{item}<br /></span>
                 })}
               </p>
               <div className='SpeedReader__Controls-Container'>

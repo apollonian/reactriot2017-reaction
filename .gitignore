@@ -6,3 +6,5 @@ coverage
 .idea/
 .yarn-cache
 package-lock.json
+.vscode/
+.yarnclean

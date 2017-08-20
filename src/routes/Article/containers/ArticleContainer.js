@@ -7,7 +7,7 @@ import {
   gotoNextWord,
   startSpeedReading,
   stopSpeedReading
- } from '../modules/article'
+} from '../modules/article'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -31,16 +31,16 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) =>
-({
-  heading: state.article.heading,
-  content: state.article.content,
-  mode: state.article.mode,
-  speed: state.article.speed,
-  speedreadState: state.article.speedreadState,
-  contentWords: state.article.contentWords,
-  positionContentWords: state.article.positionContentWords,
-  intervalId: state.article.intervalId
-})
+  ({
+    heading: state.article.heading,
+    content: state.article.content,
+    mode: state.article.mode,
+    speed: state.article.speed,
+    speedreadState: state.article.speedreadState,
+    contentWords: state.article.contentWords,
+    positionContentWords: state.article.positionContentWords,
+    intervalId: state.article.intervalId
+  })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
