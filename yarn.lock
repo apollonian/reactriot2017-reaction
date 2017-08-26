@@ -2412,6 +2412,10 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
+express-secure-only@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/express-secure-only/-/express-secure-only-0.2.1.tgz#80fb45496cc14975a867fb1ddb2fe3a56ec5e919"
+
 express@^4.15.4:
   version "4.15.4"
   resolved "https://registry.yarnpkg.com/express/-/express-4.15.4.tgz#032e2253489cf8fce02666beca3d11ed7a2daed1"
