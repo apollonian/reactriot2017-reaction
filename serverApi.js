@@ -8,11 +8,11 @@ const Slug = require('slug')
 const ArticleExtractor = require('unfluff')
 const Summary = require('node-summary')
 const path = require('path')
-const secure = require('express-secure-only')
+// const secure = require('express-secure-only')
 
 const app = express()
 const port = process.env.PORT || 3000
-app.use(secure())
+// app.use(secure())
 
 const formatList = (apiList) => {
   return apiList.map(
